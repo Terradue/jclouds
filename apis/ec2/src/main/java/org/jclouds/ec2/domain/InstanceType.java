@@ -18,6 +18,10 @@ package org.jclouds.ec2.domain;
 
 public class InstanceType {
 
+   public static final String H1_2XLARGE = "h1.2xlarge";
+
+   public static final String H1_8XLARGE = "h1.8xlarge";
+
    /**
     * Micro Instance
     * <ul>
