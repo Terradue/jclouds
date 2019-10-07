@@ -22,6 +22,8 @@ public class InstanceType {
 
    public static final String H1_8XLARGE = "h1.8xlarge";
 
+   public static final String R5_4XLARGE = "r5.4xlarge";
+
    /**
     * Micro Instance
     * <ul>

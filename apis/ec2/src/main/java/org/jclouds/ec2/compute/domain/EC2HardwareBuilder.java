@@ -255,6 +255,11 @@ public class EC2HardwareBuilder extends HardwareBuilder {
       return this;
    }
 
+   private EC2HardwareBuilder r5() {
+      virtualizationTypes(VirtualizationType.HVM);
+      return this;
+   }
+
    private EC2HardwareBuilder c3() {
       virtualizationTypes(VirtualizationType.HVM, VirtualizationType.PARAVIRTUAL);
       return this;
@@ -387,6 +392,18 @@ public class EC2HardwareBuilder extends HardwareBuilder {
       return new EC2HardwareBuilder(InstanceType.H1_8XLARGE).h1()
             .ram(131072)
             .processors(ImmutableList.of(new Processor(32.0, 2.3)))
+            .volumes(ImmutableList.<Volume> of(
+                  new VolumeBuilder().type(LOCAL).size(20.0f).device("/dev/sda1").bootDevice(true).durable(false).build()))
+            .is64Bit(true);
+   }
+
+   /**
+    * @see InstanceType#R5_4XLARGE
+    */
+    public static EC2HardwareBuilder r5_4xlarge() {
+      return new EC2HardwareBuilder(InstanceType.R5_4XLARGE).r5()
+            .ram(131072)
+            .processors(ImmutableList.of(new Processor(16.0, 3.1)))
             .volumes(ImmutableList.<Volume> of(
                   new VolumeBuilder().type(LOCAL).size(20.0f).device("/dev/sda1").bootDevice(true).durable(false).build()))
             .is64Bit(true);
